@@ -8,17 +8,30 @@ import java.util.List;
 public class Ship {
 
 	@JsonProperty private List<Square> occupiedSquares;
+	private int size;
+	private String kind;
 
 	public Ship() {
 		occupiedSquares = new ArrayList<>();
+		size = 0;
+		kind = "";
 	}
 	
 	public Ship(String kind) {
-		//TODO implement
+		occupiedSquares = new ArrayList<>();
+		this.kind = kind;
+		if(kind == "MINESWEEPER") {
+			this.size = 2;
+		}
+		else if (kind == "DESTROYER") {
+			this.size = 3;
+		}
+		else if (kind == "BATTLESHIP") {
+			this.size = 4;
+		}
 	}
 
 	public List<Square> getOccupiedSquares() {
-		//TODO implement
-		return null;
+		return this.occupiedSquares;
 	}
 }

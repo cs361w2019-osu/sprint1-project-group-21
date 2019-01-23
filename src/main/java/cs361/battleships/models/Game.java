@@ -50,17 +50,21 @@ public class Game {
     }
 
     private char randCol() {
-        // TODO implement
-        return 'X';
+        int r = (int)(Math.random() * 10);  //Random floating point between 0 and 9 cast to int
+        char x = (char)(r+65);              //cast to capital character (A-J)
+        return x;
     }
 
     private int randRow() {
-        // TODO implement
-        return 0;
+        int r = (int)(Math.random() * 10);  //Random floating point between 0 and 9 cast to int
+        return r;
     }
 
     private boolean randVertical() {
-        // TODO implement
+        double f = Math.random();           //Random floating point between 0 and 1
+        if(f >= .5) {
+            return true;
+        }
         return false;
     }
 }

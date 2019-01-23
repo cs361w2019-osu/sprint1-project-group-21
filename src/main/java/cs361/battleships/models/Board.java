@@ -12,9 +12,13 @@ public class Board {
 	 */
 	public Board() {
 		// TODO Implement
+ issue2
 		// 2-d array of Square objects
 		// nested loops to create columns A-J and rows 1-10
 		// square constructor: public Square(int row, char column)
+
+
+ master
 	}
 
 	/*
