@@ -11,13 +11,26 @@ public class Ship {
 	private int size;
 	private String kind;
 
-	public Ship() {
+	//Constructor, called when init in main
+	public Ship(){
+
 		occupiedSquares = new ArrayList<>();
 		size = 0;
 		kind = "";
 	}
 	
 	public Ship(String kind) {
+		//TODO implement
+		//Take a name or model of a ship and return that string somewhere
+
+	}
+
+	public List<Square> getOccupiedSquares() {
+		//TODO implement
+		//Perhaps system.out.println() for debugging
+		//Could also provide a visual rep of occupied squares to the user
+		//Set the color of occupied squares to red
+		return null;
 		occupiedSquares = new ArrayList<>();
 		this.kind = kind;
 		if(kind == "MINESWEEPER") {
