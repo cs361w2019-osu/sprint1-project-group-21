@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static cs361.battleships.models.AtackStatus.*;
 
@@ -44,27 +45,21 @@ public class Game {
             // AI does random attacks, so it might attack the same spot twice
             // let it try until it gets it right
             opponentAttackResult = playersBoard.attack(randRow(), randCol());
-        } while(opponentAttackResult.getResult() != INVALID);
+        } while(opponentAttackResult.getResult() == INVALID);
 
         return true;
     }
 
     private char randCol() {
-        int r = (int)(Math.random() * 10);  //Random floating point between 0 and 9 cast to int
-        char x = (char)(r+65);              //cast to capital character (A-J)
-        return x;
+        int random = new Random().nextInt(10);
+        return (char) ('A' + random);
     }
 
     private int randRow() {
-        int r = (int)(Math.random() * 10);  //Random floating point between 0 and 9 cast to int
-        return r;
+        return  new Random().nextInt(10) + 1;
     }
 
     private boolean randVertical() {
-        double f = Math.random();           //Random floating point between 0 and 1
-        if(f >= .5) {
-            return true;
-        }
-        return false;
+        return new Random().nextBoolean();
     }
 }

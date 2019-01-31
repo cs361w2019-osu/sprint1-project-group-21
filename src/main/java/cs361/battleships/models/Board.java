@@ -1,83 +1,77 @@
 package cs361.battleships.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Board {
 
-	// private List<Square> squares ????
+	@JsonProperty private List<Ship> ships;
+	@JsonProperty private List<Result> attacks;
 
 	/*
 	DO NOT change the signature of this method. It is used by the grading scripts.
 	 */
 	public Board() {
-		// TODO Implement
- issue2
-		// 2-d array of Square objects
-		// nested loops to create columns A-J and rows 1-10
-		// square constructor: public Square(int row, char column)
-
-
- master
+		ships = new ArrayList<>();
+		attacks = new ArrayList<>();
 	}
 
 	/*
 	DO NOT change the signature of this method. It is used by the grading scripts.
 	 */
 	public boolean placeShip(Ship ship, int x, char y, boolean isVertical) {
-		// TODO Implement
-		// the coordinate should be the top/left square
-		// create a loop dependent on ship. minesweeper = 2 checks,
-		// destroyer = 3 checks, battleship = 4 checks
-		// ship.type = an int representing this, so "for i = 0, i < ship.type, i++"
-		// if row is less than 1 or greater than 10, return false
-		// if col is less than A or greater than J, return false
-		// SEEMS AWFUL TO LOOP THROUGH ALL OCCUPIEDSPACES OF EACH SHIP
-		// COULD ADD BOOLEAN VARIABLE TO SQUARE CALLED "ISOCCUPIED" AND CHECK FOR THAT
-		// WHEN SHIP IS PLACED, EACH SQUARE'S ISOCCUPIED CHANGED TO TRUE
-		// so either check ifOccupied of that square (need variable at top to access?)
-		// or loop through "getShips", each will have a list of Occupied Squares
-
-		return false; // if cannot be done
+		if (ships.size() >= 3) {
+			return false;
+		}
+		if (ships.stream().anyMatch(s -> s.getKind().equals(ship.getKind()))) {
+			return false;
+		}
+		final var placedShip = new Ship(ship.getKind());
+		placedShip.place(y, x, isVertical);
+		if (ships.stream().anyMatch(s -> s.overlaps(placedShip))) {
+			return false;
+		}
+		if (placedShip.getOccupiedSquares().stream().anyMatch(s -> s.isOutOfBounds())) {
+			return false;
+		}
+		ships.add(placedShip);
+		return true;
 	}
 
 	/*
 	DO NOT change the signature of this method. It is used by the grading scripts.
 	 */
 	public Result attack(int x, char y) {
-		//TODO Implement
-		// GETS attacked, so check if x,y is occupied
-		// if not, MISS
-		// if so:
-		// // then change ship's hitSpaces
-		// // then check if all occupied spaces are hit
-		// // if so:
-		// // // check all ship's hitSpaces. as soon as one is not hit, then SUNK
-		// // // but if all ship's hitSpaces are hit, then SURRENDER
-		// // if not, then just HIT
-		return null;
+		Result attackResult = attack(new Square(x, y));
+		attacks.add(attackResult);
+		return attackResult;
 	}
 
-	public List<Ship> getShips() {
-		//TODO implement
-		// will need this for checking if ...
-		return null;
+	private Result attack(Square s) {
+		if (attacks.stream().anyMatch(r -> r.getLocation().equals(s))) {
+			var attackResult = new Result(s);
+			attackResult.setResult(AtackStatus.INVALID);
+			return attackResult;
+		}
+		var shipsAtLocation = ships.stream().filter(ship -> ship.isAtLocation(s)).collect(Collectors.toList());
+		if (shipsAtLocation.size() == 0) {
+			var attackResult = new Result(s);
+			return attackResult;
+		}
+		var hitShip = shipsAtLocation.get(0);
+		var attackResult = hitShip.attack(s.getRow(), s.getColumn());
+		if (attackResult.getResult() == AtackStatus.SUNK) {
+			if (ships.stream().allMatch(ship -> ship.isSunk())) {
+				attackResult.setResult(AtackStatus.SURRENDER);
+			}
+		}
+		return attackResult;
 	}
 
-	public void setShips(List<Ship> ships) {
-		//TODO implement
-		// what does this mean? how are we "setting" ships?
-
-	}
-
-	public List<Result> getAttacks() {
-		//TODO implement
-		// also confusing, what does this mean?
-		// if it's a list of results.. how do we even use this
-		return null;
-	}
-
-	public void setAttacks(List<Result> attacks) {
-		//TODO implement
+	List<Ship> getShips() {
+		return ships;
 	}
 }
