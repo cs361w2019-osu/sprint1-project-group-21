@@ -1,9 +1,78 @@
 /* Add additional stylesheets below
 -------------------------------------------------- */
 
+div.right-container {
+    display: inline-block;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 330px;
+}
+
+div.left-container {
+    display: inline-block;
+}
+
+p.rotate_button {
+    transform: translate(0px, -51px);
+}
+
+input#is_vertical {
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+
+input#is_vertical:hover {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+li {
+    width: 200px;
+    height: 50px;
+    background-color: #888;
+    margin-bottom: 10px;
+    color: white;
+    transition: .1s;
+    font-family: calibri;
+    font-size: 13px;
+    text-align: center;
+}
+
+li:hover {
+    background-color: #666;
+    cursor: pointer;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    color: #FFF;
+    background: none;
+    font-family: calibri;
+    font-size: 13px;
+    border: 0px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h1 {
+    font-family: "agency FB";
+    font-weight: lighter;
+    font-size: 100px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0px;
+}
 .battleGrid {
-    border: 1px solid black;
-    border-spacing: 0px;
+    border: 1px solid #444;
+    margin-bottom: 20px;
 }
 
 .battleGrid tr {
@@ -14,6 +83,7 @@
 .battleGrid td {
     border: 1px solid black;
     width: 30px;
+    transition: .1s;
 }
 
 td:hover {
@@ -25,17 +95,17 @@ td:hover {
 }
 
 .occupied {
-    background-color: black;
+    background-color: #999;
 }
 
 .hit {
-    background-color: orange;
+    background-color: #F47474;
 }
 
 .sink {
-    background-color: red;
+    background-color: #E46464;
 }
 
 .miss {
-    background-color: blue;
+    background-color: #635EE5;
 }
