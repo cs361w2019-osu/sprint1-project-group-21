@@ -1,1 +1,82 @@
+<html>
+	<head>
+		<title>Battleship console test</title>
+		
+		<style>
+			body{
+				margin:0;
+				padding:0;
+				background-color:white;
+			}
+			
+			#console-container{
+				min-width:200px;
+				max-width:33%;
+				min-height:100px;
+				height:auto;
+				border:1px solid black;
+				padding:1%;
+			}
+			
+			#console-inner{
+				width:inherit;
+				max-height:768px;
+				overflow-x: hidden;
+				
+			}
+		</style>
+		
 
+	</head>
+	
+	
+	<body>
+		<div id="console-container">
+			Console Stuff<br>
+			<div id="console-inner">
+			
+			
+			</div>
+		</div>
+		<input type="text" name = "text" id="text">
+		<button name="btn" id="btn">Send message to console</button>
+	</body>
+</html>
+	<!--Use onload function rather than shoving this at the bottom of the page-->
+	
+	<script>
+		
+		document.getElementById("console-inner");
+			
+		document.getElementById("btn").addEventListener("click", function(){
+			
+			writeToConsole(getInput());
+		
+		});
+		
+		//Get input from input box shown on webpage
+		function getInput(){
+			var message = document.getElementById("text").value;
+			return message;
+		}
+		
+		//Write something to the console and display it
+		function writeToConsole( message){
+			document.getElementById("console-inner").innerHTML += getCurTime() + " " + message + "<br>";
+		}
+		
+		//Gets the current timestamp
+		function getCurTime(){
+		
+			var curTime = new Date();
+			var hour = curTime.getHours();
+			var minute = curTime.getMinutes();
+			var second = curTime.getSeconds();
+			
+			return hour + "h:" + minute + "m:" + second + "s";  
+		}
+			
+			
+		
+	</script>
+		
