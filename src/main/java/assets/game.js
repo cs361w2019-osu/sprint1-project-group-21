@@ -4,6 +4,7 @@ var game;
 var shipType;
 var vertical;
 
+// TODO: Add cells with minimal text to represent grid labels (A-J, 0-9)
 function makeGrid(table, isPlayer) {
     for (i=0; i<10; i++) {
         let row = document.createElement('tr');
@@ -31,6 +32,8 @@ function markHits(board, elementId, surrenderText) {
     });
 }
 
+/* TODO: Create three ship statuses for each player
+    Can be fetched from game data, if ship is sunk */
 function redrawGrid() {
     Array.from(document.getElementById("opponent").childNodes).forEach((row) => row.remove());
     Array.from(document.getElementById("player").childNodes).forEach((row) => row.remove());
