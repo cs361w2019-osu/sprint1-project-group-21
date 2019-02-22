@@ -70,6 +70,20 @@ public class Board {
 		}
 		return attackResult;
 	}
+	
+	/*
+	
+	private Result reveal(Square s) {
+		// create list of squares with given square at center
+			// for radius 3, extend an additional two squares in the +x, -x, +y, -y directions
+			// do not add square element to list if it should extend beyond boundaries (0-9, A-I)
+		// enumerate through list of squares
+			// check for a matching square present from any enemy ship
+			// confirm ship square is without status "HIT" or "SUNK"
+			// return status "REVEALED"
+	}
+
+	*/
 
 	List<Ship> getShips() {
 		return ships;
