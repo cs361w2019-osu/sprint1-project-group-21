@@ -87,6 +87,18 @@ public class Ship {
 		}
 		return result;
 	}
+	
+	/*
+	public Result reveal(int x, char y) {
+		// create a reaveled location equivalent to a square with parameters as attributes
+		// check to see is the square is present within the list of occupied squares of the ship
+			// if not, return
+			// if so, check to see if the square is already "HIT" or "SUNK" or "REVEALED"
+				// if so, return
+				// if not, check to see if the square is of captain's quarters (requires external implementation)
+					// if not, return that it is revealed
+	}
+	*/
 
 	@JsonIgnore
 	public boolean isSunk() {
