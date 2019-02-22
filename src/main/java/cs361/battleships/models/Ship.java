@@ -19,7 +19,8 @@ public class Ship {
 	public Ship() {
 		occupiedSquares = new ArrayList<>();
 	}
-	
+
+
 	public Ship(String kind) {
 		this();
 		this.kind = kind;
@@ -32,6 +33,9 @@ public class Ship {
 				break;
 			case "BATTLESHIP":
 				size = 4;
+				break;
+			case "CARRIER":
+				size = 5;
 				break;
 		}
 	}
