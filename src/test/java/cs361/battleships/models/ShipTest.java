@@ -32,6 +32,34 @@ public class ShipTest {
     }
 
     @Test
+    public void testPlaceCarrierHorizontaly() {
+        Ship carrier = new Ship("CARRIER");
+        carrier.place('A', 1, false);
+        List<Square> occupiedSquares = carrier.getOccupiedSquares();
+        ArrayList<Object> expected = new ArrayList<>();
+        expected.add(new Square(1, 'A'));
+        expected.add(new Square(1, 'B'));
+        expected.add(new Square(1, 'C'));
+        expected.add(new Square(1, 'D'));
+        expected.add(new Square(1, 'E'));
+        assertEquals(expected, occupiedSquares);
+    }
+
+    @Test
+    public void testPlaceCarrierVertically() {
+        Ship carrier = new Ship("CARRIER");
+        carrier.place('A', 1, true);
+        List<Square> occupiedSquares = carrier.getOccupiedSquares();
+        ArrayList<Object> expected = new ArrayList<>();
+        expected.add(new Square(1, 'A'));
+        expected.add(new Square(2, 'A'));
+        expected.add(new Square(3, 'A'));
+        expected.add(new Square(4, 'A'));
+        expected.add(new Square(5, 'A'));
+        assertEquals(expected, occupiedSquares);
+    }
+
+    @Test
     public void testPlaceDestroyerHorizontaly() {
         Ship minesweeper = new Ship("DESTROYER");
         minesweeper.place('A', 1, false);
