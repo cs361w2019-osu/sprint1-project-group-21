@@ -29,6 +29,14 @@ public class SquareTest {
         square.hit();
         assertTrue(square.isHit());
     }
+    
+    /*
+    @Test
+    public void testisRevealed() {
+        // assert that a should-be-revealed square is revealed
+        // assert that a should-not-be-revealed square is not revealed
+    }
+    */
 
     @Test
     public void testEquals() {
