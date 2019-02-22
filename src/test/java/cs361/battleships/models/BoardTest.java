@@ -59,6 +59,20 @@ public class BoardTest {
         Result result = board.attack(1, 'A');
         assertEquals(AtackStatus.INVALID, result.getResult());
     }
+    
+    /*
+    @Test
+    public void testSonarPulseBeforeFirstShipSunk() {
+        // assert that a sonar pulse cannot be performed before at least one enemy ship sunk
+    }
+    */
+    
+    /*
+    @Test
+    public void testSonarPulseMoreThanTwice() {
+        // assert that a sonar pulse cannot be performed after it has been used twice
+    }
+    */
 
     @Test
     public void testSurrender() {
