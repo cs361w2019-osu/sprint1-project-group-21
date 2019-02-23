@@ -49,6 +49,15 @@ public class Game {
 
         return true;
     }
+	
+	/*
+	public boolean reveal(int x, char y){
+		// create a result from calling board.reveal(x, y)
+		// if such result is INVALID, return false
+		// if such result is REVEALED, return true
+		// default: return true
+	}
+	*/
 
     private char randCol() {
         int random = new Random().nextInt(10);

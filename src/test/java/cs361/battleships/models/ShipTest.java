@@ -183,6 +183,20 @@ public class ShipTest {
         assertEquals(AtackStatus.INVALID, result.getResult());
     }
 
+    /*
+    @Test
+    public void testSonarPulseMakesShipRevealed() {
+        // assert that a ship's square/result is "REVEALED" upon successful sonar pulse
+    }
+    */
+    
+    /*
+    @Test
+    public void testSonarPulseDoesNotRevealCaptainsQuarters() {
+        // assert that a captain's quarters square is not revealed by sonar pulse
+    }
+    */
+    
     @Test
     public void testEquals() {
         Ship minesweeper1 = new Ship("MINESWEEPER");

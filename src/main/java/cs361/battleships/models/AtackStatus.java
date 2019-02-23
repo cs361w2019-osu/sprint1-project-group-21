@@ -27,5 +27,10 @@ public enum AtackStatus {
 	 * The result if the coordinates given are invalid.
 	 */
 	INVALID,
+	
+	/**
+	 * The result if a sonar pulse reveals a square of the ship.
+	 */
+	REVEALED,
 
 }
