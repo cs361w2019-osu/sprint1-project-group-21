@@ -73,7 +73,7 @@ function cellClick() {
             game = data;
             redrawGrid();
             placedShips++;
-            if (placedShips == 4) {
+            if (placedShips == 5) {
                 isSetup = false;
                 registerCellListener((e) => {});
             }
@@ -106,6 +106,7 @@ function place(size) {
         let col = this.cellIndex;
         vertical = document.getElementById("is_vertical").checked;
         let table = document.getElementById("player");
+        //add outlying block to highlight for submarine type ship
         for (let i=0; i<size; i++) {
             let cell;
             if(vertical) {
@@ -145,6 +146,10 @@ function initGame() {
     document.getElementById("place_carrier").addEventListener("click", function(e) {
         shipType = "CARRIER";
        registerCellListener(place(5));
+    });
+    document.getElementById("place_submarine").addEventListener("click", function(e) {
+        shipType = "SUBMARINE";
+        registerCellListener(place(4));
     });
     sendXhr("GET", "/game", {}, function(data) {
         game = data;

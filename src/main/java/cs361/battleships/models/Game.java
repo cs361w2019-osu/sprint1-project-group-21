@@ -8,6 +8,8 @@ import java.util.Random;
 
 import static cs361.battleships.models.AtackStatus.*;
 
+//add submarine functionality, submerge/resurface etc
+
 public class Game {
 
     @JsonProperty private Board playersBoard = new Board();
