@@ -40,6 +40,17 @@ public class Board {
 		ships.add(placedShip);
 		return true;
 	}
+	
+	/* public boolean moveShip(Ship ship, int x, char y) {
+		// Obtain ship's current position (occupied squares)
+		// Check that the desired position (square) is a distance of one away
+			// The row OR col must match
+			// The difference in the other must be equal to 1
+			// Return false at any point these rules are violated
+		// If above passes, call placeShip to set the new occupied squares of the ship
+			// If it returns false (overlapping, off the board, etc.) return false
+	}
+	*/
 
 	/*
 	DO NOT change the signature of this method. It is used by the grading scripts.

@@ -32,6 +32,20 @@ public class Game {
 
         return true;
     }
+	
+	/* public boolean moveShip(Ship ship, int x, char y) {
+		// Call board.java's moveShip function
+			// If unsuccessful, return flase
+		// If successful, move is consumed. Opponent now attacks as per usual:
+		Result opponentAttackResult;
+		do {
+		    // AI does random attacks, so it might attack the same spot twice
+		    // let it try until it gets it right
+		    opponentAttackResult = playersBoard.attack(randRow(), randCol());
+		} while(opponentAttackResult.getResult() == INVALID);
+
+		return true;
+	}
 
     /*
 	DO NOT change the signature of this method. It is used by the grading scripts.
