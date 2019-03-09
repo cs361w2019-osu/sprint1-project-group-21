@@ -48,6 +48,7 @@ public class Board {
 			// The difference in the other must be equal to 1
 			// Return false at any point these rules are violated
 		// If above passes, call placeShip to set the new occupied squares of the ship
+			// If it returns false (overlapping, off the board, etc.) return false
 	}
 	*/
 
