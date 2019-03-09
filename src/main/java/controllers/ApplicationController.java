@@ -29,6 +29,13 @@ public class ApplicationController {
             return Results.badRequest();
         }
     }
+    
+    /* public Result moveShip(Context context, PlacementGameAction pga) {
+        // Utilize the existing PlacementGameAction.java file to perform a movement of ship
+            // Do not generate a new ship; get information on it and move
+            // Render upon success, return bad request otherwise
+    }
+    */
 
     public Result attack(Context context, AttackGameAction g) {
         Game game = g.getGame();
